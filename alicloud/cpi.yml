@@ -4,8 +4,8 @@
   path: /releases/-
   value:
     name: bosh-alicloud-cpi
-    version: 7
-    url: file://~/bosh-alicloud-cpi.tgz
+    version: 8
+    url: file://~/Temp/blobs/bosh-alicloud-cpi.tgz
 
 # light stemcell
 - type: replace
@@ -21,8 +21,8 @@
     instance_type: "ecs.mn4.small"
     instance_charge_type: "PostPaid"
     instance_name: "bosh-director-1"
-    ephemeral_disk: {size: "51_200", type: "cloud_efficiency"}
-    system_disk: {size: "40_960", type: "cloud_efficiency"}
+    ephemeral_disk: {size: "51_200", category: "cloud_efficiency"}
+    system_disk: {size: "51_200", category: "cloud_efficiency"}
     instance_role: ""
     availability_zone: ((zone))
 
@@ -84,7 +84,6 @@
   path: /instance_groups/name=bosh/properties/alicloud?
   value: &alicloud
     region_id: ((region))
-    zone_id: ((zone))
     access_key_id: ((access_key_id))
     access_key_secret: ((access_key_secret))
 
