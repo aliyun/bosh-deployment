@@ -4,15 +4,16 @@
   path: /releases/-
   value:
     name: bosh-alicloud-cpi
-    version: 8
-    url: file://~/Temp/blobs/bosh-alicloud-cpi.tgz
+    version: 10
+    url: http://bosh-alicloud.oss-cn-hangzhou.aliyuncs.com/bosh-alicloud-cpi-r10.tgz
+    sha1: 4cbff917b7e6f181e7d7122bfb398e03fdcf5d23
 
 # light stemcell
 - type: replace
   path: /resource_pools/name=vms/stemcell?
   value:
-    url: http://bosh-alicloud.oss-cn-hangzhou.aliyuncs.com/light-bosh-stemcell-1008-alicloud-kvm-ubuntu-trusty-go_agent.tgz
-    sha1: fd23369acfb1b6c3a712d9abb7b32637cdca7763
+    url: http://bosh-alicloud.oss-cn-hangzhou.aliyuncs.com/light-bosh-stemcell-1009-alicloud-kvm-ubuntu-trusty-go_agent.tgz
+    sha1: a1810717ea5415901c698c7dd9cb5739b700f3a6
 
 # Configure ECS sizes
 - type: replace
@@ -28,13 +29,13 @@
 
 - type: replace
   path: /disk_pools/name=disks/cloud_properties?
-  value: 
+  value:
     type: "cloud_efficiency"
     instance_role: "director"
 
 - type: replace
   path: /networks/name=default/subnets/0/cloud_properties?
-  value: 
+  value:
     vswitch_id: ((vswitch_id))
     security_group_id: ((security_group_id))
     internet_charge_type: "PayByTraffic"
@@ -90,7 +91,7 @@
 - type: replace
   path: /cloud_provider/properties/alicloud?
   value: *alicloud
-  
+
 #- type: replace
 #  path: /cloud_provider/ssh_tunnel?
 #  value:
@@ -104,5 +105,3 @@
   value:
     name: registry_password
     type: password
-
-
