@@ -6,26 +6,24 @@
     name: bosh-alicloud-cpi
     version: 10
     url: http://bosh-alicloud.oss-cn-hangzhou.aliyuncs.com/bosh-alicloud-cpi-r10.tgz
-    sha1: 4cbff917b7e6f181e7d7122bfb398e03fdcf5d23
+    sha1: 62aa99d14d42d7602ceccded5be51fe18e6abff2
 
 # light stemcell
 - type: replace
   path: /resource_pools/name=vms/stemcell?
   value:
-    url: http://bosh-alicloud.oss-cn-hangzhou.aliyuncs.com/light-bosh-stemcell-1009-alicloud-kvm-ubuntu-trusty-go_agent.tgz
-    sha1: a1810717ea5415901c698c7dd9cb5739b700f3a6
+    url: http://bosh-alicloud.oss-cn-hangzhou.aliyuncs.com/light-bosh-stemcell-1010-alicloud-kvm-ubuntu-trusty-go_agent.tgz
+    sha1: 00d20db2c7cb63d8e75f4c021d5014db57ee26fe
 
 # Configure ECS sizes
 - type: replace
   path: /resource_pools/name=vms/cloud_properties?
   value:
+    availability_zone: ((zone))
     instance_type: "ecs.mn4.small"
-    instance_charge_type: "PostPaid"
     instance_name: "bosh-director-1"
     ephemeral_disk: {size: "51_200", category: "cloud_efficiency"}
     system_disk: {size: "51_200", category: "cloud_efficiency"}
-    instance_role: ""
-    availability_zone: ((zone))
 
 - type: replace
   path: /disk_pools/name=disks/cloud_properties?
@@ -85,6 +83,8 @@
   path: /instance_groups/name=bosh/properties/alicloud?
   value: &alicloud
     region_id: ((region))
+    zone_id: ((zone))
+    access_endpoint: ((access_endpoint))
     access_key_id: ((access_key_id))
     access_key_secret: ((access_key_secret))
 
@@ -92,7 +92,7 @@
   path: /cloud_provider/properties/alicloud?
   value: *alicloud
 
-#- type: replace
+# - type: replace
 #  path: /cloud_provider/ssh_tunnel?
 #  value:
 #    host: ((internal_ip))
