@@ -6,7 +6,7 @@
     name: bosh-alicloud-cpi
     version: 10
     url: http://bosh-alicloud.oss-cn-hangzhou.aliyuncs.com/bosh-alicloud-cpi-r10.tgz
-    sha1: 62aa99d14d42d7602ceccded5be51fe18e6abff2
+    sha1: d7cf8ceadfbbf63b77f65ee3ce0707035e43194f
 
 # light stemcell
 - type: replace
