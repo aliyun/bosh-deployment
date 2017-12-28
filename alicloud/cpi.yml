@@ -4,16 +4,16 @@
   path: /releases/-
   value:
     name: bosh-alicloud-cpi
-    version: 10
-    url: http://bosh-alicloud.oss-cn-hangzhou.aliyuncs.com/bosh-alicloud-cpi-r10.tgz
-    sha1: d7cf8ceadfbbf63b77f65ee3ce0707035e43194f
+    version: 16
+    url: http://bosh-((region)).oss-((region)).aliyuncs.com/bosh-alicloud-cpi-release-r16.tgz
+    sha1: dc63a7b28fa77294ae4c7305c85d9590ca690cd9
 
 # light stemcell
 - type: replace
   path: /resource_pools/name=vms/stemcell?
   value:
-    url: http://bosh-alicloud.oss-cn-hangzhou.aliyuncs.com/light-bosh-stemcell-1010-alicloud-kvm-ubuntu-trusty-go_agent.tgz
-    sha1: 00d20db2c7cb63d8e75f4c021d5014db57ee26fe
+    url: http://bosh-((region)).oss-((region)).aliyuncs.com/light-bosh-stemcell-1016-alicloud-kvm-ubuntu-trusty-go_agent.tgz
+    sha1: ef7dfcf7d677a32625631cdc49257b8680eca9e6
 
 # Configure ECS sizes
 - type: replace
@@ -21,9 +21,10 @@
   value:
     availability_zone: ((zone))
     instance_type: "ecs.mn4.small"
-    instance_name: "bosh-director-1"
+    instance_name: "bosh-director"
     ephemeral_disk: {size: "51_200", category: "cloud_efficiency"}
     system_disk: {size: "51_200", category: "cloud_efficiency"}
+    key_pair_name: ((key_pair_name))
 
 - type: replace
   path: /disk_pools/name=disks/cloud_properties?
@@ -35,7 +36,7 @@
   path: /networks/name=default/subnets/0/cloud_properties?
   value:
     vswitch_id: ((vswitch_id))
-    security_group_id: ((security_group_id))
+    security_group_ids: [((security_group_id))]
     internet_charge_type: "PayByTraffic"
 
 # Enable registry job
@@ -84,7 +85,6 @@
   value: &alicloud
     region_id: ((region))
     zone_id: ((zone))
-    access_endpoint: ((access_endpoint))
     access_key_id: ((access_key_id))
     access_key_secret: ((access_key_secret))
 
@@ -92,13 +92,13 @@
   path: /cloud_provider/properties/alicloud?
   value: *alicloud
 
-# - type: replace
-#  path: /cloud_provider/ssh_tunnel?
-#  value:
-#    host: ((internal_ip))
-#    port: 22
-#    user: vcap
-#    private_key: ((private_key))
+- type: replace
+  path: /cloud_provider/ssh_tunnel?
+  value:
+    host: ((internal_ip))
+    port: 22
+    user: vcap
+    private_key: ((private_key))
 
 - type: replace
   path: /variables/-
