@@ -2,6 +2,7 @@
 
 * [Create an environment](https://bosh.io/docs/init.html)
     * [On Local machine (BOSH Lite)](https://bosh.io/docs/bosh-lite.html)
+    * [On Alibaba Cloud](https://bosh.io/docs/init-alicloud.html)
     * [On AWS](https://bosh.io/docs/init-aws.html)
     * [On Azure](https://bosh.io/docs/init-azure.html)
     * [On OpenStack](https://bosh.io/docs/init-openstack.html)
