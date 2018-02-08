@@ -8,5 +8,5 @@
 # light stemcell
 - type: replace
   path: /resource_pools/name=vms/stemcell/url?
-  value: http://bosh.oss-cn-hangzhou.aliyuncs.com/light-bosh-stemcell-1016-alicloud-kvm-ubuntu-trusty-go_agent.tgz
+  value: http://bosh.oss-cn-hangzhou.aliyuncs.com/light-bosh-stemcell-1017-alicloud-kvm-ubuntu-trusty-go_agent.tgz
 
