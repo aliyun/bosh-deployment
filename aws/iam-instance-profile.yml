@@ -1,5 +1,9 @@
 ---
 - type: replace
+  path: /cloud_provider/properties/aws/credentials_source?
+  value: env_or_profile
+
+- type: replace
   path: /resource_pools/name=vms/cloud_properties/iam_instance_profile?
   value: ((iam_instance_profile))
 
