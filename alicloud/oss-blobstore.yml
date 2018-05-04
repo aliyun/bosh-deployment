@@ -1,0 +1,14 @@
+---
+
+# OSS blobstore
+- type: remove
+  path: /instance_groups/name=bosh/jobs/name=blobstore
+
+- type: replace
+  path: /instance_groups/name=bosh/properties/blobstore?
+  value:
+    provider: s3
+    bucket_name: bosh-alicloud-cpi-blobs
+    host: oss-((region)).aliyuncs.com
+    access_key_id: ((access_key_id))
+    secret_access_key: ((access_key_secret))
