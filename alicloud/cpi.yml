@@ -4,16 +4,16 @@
   path: /releases/-
   value:
     name: bosh-alicloud-cpi
-    version: 16
-    url: http://bosh-((region)).oss-((region)).aliyuncs.com/bosh-alicloud-cpi-release-r16.tgz
-    sha1: dc63a7b28fa77294ae4c7305c85d9590ca690cd9
+    version: 18
+    url: http://bosh-((region)).oss-((region)).aliyuncs.com/bosh-alicloud-cpi-release-r18.tgz
+    sha1: 2e36b60f99e51fe2dd4e7ea021bf3ecce883487c
 
 # light stemcell
 - type: replace
   path: /resource_pools/name=vms/stemcell?
   value:
-    url: http://bosh-((region)).oss-((region)).aliyuncs.com/light-bosh-stemcell-1017-alicloud-kvm-ubuntu-trusty-go_agent.tgz
-    sha1: fe317f5515646fd98b2f5aecc932758074329316
+    url: http://bosh-((region)).oss-((region)).aliyuncs.com/light-bosh-stemcell-1018-alicloud-kvm-ubuntu-trusty-go_agent.tgz
+    sha1: d8e8f51f5c90655ca4c76c7bada0b83f6e112533
 
 # Configure ECS sizes
 - type: replace
@@ -105,3 +105,12 @@
   value:
     name: registry_password
     type: password
+
+# Replace ntp to China timezone
+- type: replace
+  path: /instance_groups/name=bosh/properties/ntp?
+  value: &ntp
+  - server 0.cn.pool.ntp.org
+  - server 1.cn.pool.ntp.org
+  - server 2.cn.pool.ntp.org
+  - server 3.cn.pool.ntp.org
