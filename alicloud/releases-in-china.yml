@@ -4,8 +4,3 @@
 - type: replace
   path: /releases/name=bosh-alicloud-cpi/url?
   value: http://bosh.oss-cn-hangzhou.aliyuncs.com/bosh-alicloud-cpi-release-r19.tgz
-
-# light stemcell
-- type: replace
-  path: /resource_pools/name=vms/stemcell/url?
-  value: http://bosh.oss-cn-hangzhou.aliyuncs.com/light-bosh-stemcell-1018-alicloud-kvm-ubuntu-trusty-go_agent.tgz

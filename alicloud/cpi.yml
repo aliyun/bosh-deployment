@@ -12,8 +12,8 @@
 - type: replace
   path: /resource_pools/name=vms/stemcell?
   value:
-    url: http://bosh-((region)).oss-((region)).aliyuncs.com/light-bosh-stemcell-1018-alicloud-kvm-ubuntu-trusty-go_agent.tgz
-    sha1: d8e8f51f5c90655ca4c76c7bada0b83f6e112533
+    url: http://bosh.oss-cn-hangzhou.aliyuncs.com/light-bosh-stemcell-1018-alicloud-kvm-ubuntu-xenial-go_agent.tgz
+    sha1: 7e004713a5eda2f3522631935ade0a08ec055936
 
 # Configure ECS sizes
 - type: replace
