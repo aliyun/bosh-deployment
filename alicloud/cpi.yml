@@ -4,16 +4,16 @@
   path: /releases/-
   value:
     name: bosh-alicloud-cpi
-    version: 19
-    url: https://github.com/cloudfoundry-incubator/bosh-alicloud-cpi-release/releases/download/V19/bosh-alicloud-cpi-release-r19.tgz
-    sha1: f58ee9bab45cb45036164cf170989751523fa6d8
+    version: 23.0.0
+    url: https://github.com/cloudfoundry-incubator/bosh-alicloud-cpi-release/releases/download/v23.0.0/bosh-alicloud-cpi-release-23.0.0.tgz
+    sha1: ec17a3e0ec344e59141b5f93cb2032f24646118a
 
 # light stemcell
 - type: replace
   path: /resource_pools/name=vms/stemcell?
   value:
-    url: http://bosh.oss-cn-hangzhou.aliyuncs.com/light-bosh-stemcell-1018-alicloud-kvm-ubuntu-xenial-go_agent.tgz
-    sha1: 7e004713a5eda2f3522631935ade0a08ec055936
+    url: https://bosh-alicloud-light-stemcells.oss-eu-central-1.aliyuncs.com/light-bosh-stemcell-315.70-alicloud-kvm-ubuntu-xenial-go_agent.tgz
+    sha1: fd06df550eeb62be1d066f9675ad2ad0db2d1a4c
 
 # Configure ECS sizes
 - type: replace
