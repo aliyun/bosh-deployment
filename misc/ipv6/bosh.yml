@@ -6,11 +6,11 @@
 
 - type: replace
   path: /instance_groups/name=bosh/properties/director/ipv6_listen?
-  value: true
+  value: false
 
 - type: replace
   path: /instance_groups/name=bosh/properties/blobstore/ipv6_listen?
-  value: true
+  value: false
 
 - type: replace
   path: /instance_groups/name=bosh/properties/nats/listen_address?
